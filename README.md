@@ -2,13 +2,11 @@
 
 Consecutive Any-to-English interpreter.
 
-> Hoshi Sato [..] is a fictional character in the science fiction television series Star Trek: Enterprise.
->
-> [...] She is an acknowledged linguistic genius and expert at operating the universal translator, a key instrument in allowing the crew to communicate with alien cultures.
+> Hoshi Sato [..] is a fictional character in the science fiction television series Star Trek: Enterprise. [...] She is an acknowledged linguistic genius and expert at operating the universal translator, a key instrument in allowing the crew to communicate with alien cultures.
 >
 > --https://en.wikipedia.org/wiki/Hoshi_Sato
 
-> In Japanese, the character 機 (ki) means "machine," "device," or "mechanism." 
+> In Japanese, the character 機 (ki) means "machine," "device," or "mechanism."
 >
 > --https://jisho.org/search/%E6%A9%9F
 
@@ -26,6 +24,7 @@ make run ARGS="ja --whisper-backend faster-whisper --faster-whisper-compute-type
 
 ### Show help
 ```bash
+make run ARGS="--help"
 Usage: pipenv run python -m hoshiki [OPTIONS] [SOURCE_LANGUAGE]
 
   Consecutive Any-to-English interpreter.
