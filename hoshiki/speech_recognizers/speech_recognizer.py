@@ -25,10 +25,7 @@ class SpeechRecognizer:
     def listen(self, callback: Callable[[ByteString], None]) -> None:
         try:
             with self._microphone:
-                audio: sr.AudioData = self._recognizer.listen(
-                    self._microphone,
-                    timeout=1.0
-                )
+                audio: sr.AudioData = self._recognizer.listen(self._microphone)
         except sr.WaitTimeoutError:
             pass
         else:
