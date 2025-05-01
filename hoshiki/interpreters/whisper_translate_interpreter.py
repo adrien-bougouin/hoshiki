@@ -75,7 +75,8 @@ class WhisperTranslateInterpreter(Interpreter):
             worker.start()
 
     def stop(self, timeout: float | None = None) -> None:
-        for worker in self._workers:
+        # Stop workers in reverse order, to stop processing new speech.
+        for worker in self._workers[::-1]:
             worker.stop(timeout)
 
         self._workers = []
