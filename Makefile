@@ -7,10 +7,10 @@ pylint := pipenv -q run pylint
 flake8 := pipenv -q run flake8
 mypy := pipenv -q run mypy
 
-Pipenv.lock: Pipfile
+Pipfile.lock: Pipfile
 	pipenv lock
 
-dependencies: Pipenv.lock
+dependencies: Pipfile.lock
 	pipenv sync
 	pipenv sync --dev
 .PHONY: dependencies
