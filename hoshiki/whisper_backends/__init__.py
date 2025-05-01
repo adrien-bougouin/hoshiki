@@ -2,7 +2,8 @@ __all__ = [
     "FasterWhisperBackend",
     "get",
     "OpenAIWhisperBackend",
-    "WhisperBackend"
+    "WhisperBackend",
+    "WhisperCPPBackend"
 ]
 
 from hoshiki import Config
@@ -10,6 +11,7 @@ from hoshiki import Config
 from .faster_whisper_backend import FasterWhisperBackend
 from .openai_whisper_backend import OpenAIWhisperBackend
 from .whisper_backend import WhisperBackend
+from .whispercpp_backend import WhisperCPPBackend
 
 
 def get(config: Config) -> WhisperBackend:
@@ -29,5 +31,13 @@ def get(config: Config) -> WhisperBackend:
                     "faster_whisper_compute_type", "float32"
                 )
             )
+        case "whispercpp":
+            if config.get("source_language") is None:
+                raise ValueError(
+                    f"Whisper backend '{identifier}' incompatible with"
+                    " undefined source language"
+                )
+
+            return WhisperCPPBackend(model_name)
         case _:
             raise ValueError(f"unsupported Whisper backend '{identifier}'")

@@ -13,7 +13,6 @@ from hoshiki._audio_io import \
 LOGGING_FORMAT = "[%(asctime)s][%(name)s] %(levelname)s -- %(message)s"
 
 
-# TODO: --whisper-backend whispercpp
 # TODO: --whisper-context INITIAL_PROMPT
 
 
@@ -57,12 +56,12 @@ LOGGING_FORMAT = "[%(asctime)s][%(name)s] %(levelname)s -- %(message)s"
     type=click.STRING,
     default="base", show_default=True,
     help="Name of the whisper model to use. Option available for the"
-         " whisper-translate interpreter, the openai-whisper backend, and the"
-         " faster-whisper backend."
+         " whisper-translate interpreter, the openai-whisper backend, the"
+         " faster-whisper backend, and the whispercpp backend."
 )
 @click.option(
     "--whisper-backend",
-    type=click.Choice(["openai-whisper", "faster-whisper"]),
+    type=click.Choice(["openai-whisper", "faster-whisper", "whispercpp"]),
     default="openai-whisper", show_default=True,
     help="Whisper backend to use. Option available for the whisper-translate"
          " interpreter."
