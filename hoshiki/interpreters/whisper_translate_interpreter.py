@@ -90,7 +90,7 @@ class WhisperTranslateInterpreter(Interpreter):
             language=self._source_language
         )
 
-        if source_language not in self._language_allow_list:
+        if not self._validate_source_language(source_language):
             translation = ""
 
             translation_type = \
@@ -106,3 +106,8 @@ class WhisperTranslateInterpreter(Interpreter):
             )
 
         return translation
+
+    def _validate_source_language(self, source_language: str) -> bool:
+        return \
+            True if not self._language_allow_list \
+            else (source_language in self._language_allow_list)
