@@ -28,7 +28,7 @@ class WhisperCPPBackend(WhisperBackend):
         task: str = "transcribe"
     ) -> tuple[str, str]:
         if language is None:
-            raise ValueError("None 'language' is not supported")
+            raise ValueError("undefined 'language' (None) is not supported")
 
         self._model.params.language = language
         self._model.params.translate = task == "translate"
