@@ -13,9 +13,6 @@ from hoshiki._audio_io import \
 LOGGING_FORMAT = "[%(asctime)s][%(name)s] %(levelname)s -- %(message)s"
 
 
-# TODO: --whisper-context INITIAL_PROMPT
-
-
 @click.command(help="Consecutive Any-to-English interpreter.")
 @click.argument("source-language", required=False, type=click.STRING)
 @click.option(
